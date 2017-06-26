@@ -1,0 +1,35 @@
+{
+  "People": [
+  	{
+  		"title": "France",
+  		"name": "Napoleon Bonaparte",
+  		"bio": "Emporer of France for a while",
+  		"image": "https://static1.squarespace.com/static/50adfa2ae4b0cc1d786569eb/t/550b518ee4b0312fe85d82a2/1426805143300/",
+  		"lifespan": {
+    		"birth": 1769,
+    		"death": 1821
+  		}
+  	},
+	{
+		"title": "United States",
+		"name": "George Washington",
+		"bio": "First President of the United States",
+		"image": "http://www.americanhistorycentral.com/wp-content/uploads/2016/08/george-washington-portrait.jpg",
+		"lifespan": {
+			"birth": 1732,
+			"death": 1799
+		}
+	},
+	{ 
+		"title": "India",
+		"name": "Gandhi",
+		"bio": "civil rights activist",
+		"image": "https://www.biography.com/.image/t_share/MTIwNjA4NjMzODE4MjIwMDQ0/mahatma-gandhi-9305898-1-402.jpg",
+		"lifespan": {
+			"birth": 1869,
+			"death": 1948
+	}
+}
+]
+}
+
