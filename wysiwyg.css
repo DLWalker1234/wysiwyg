@@ -1,11 +1,13 @@
-#output {
-    border-style: solid;
-    border-color: red;
-    border-width: 5px;
-}
 
 h2, h3, footer {
 	margin-left: 2em;
+	font-family: 'Oswald', sans-serif;
+}
+
+.card {
+	border-style: solid;
+    border-color: red;
+    border-width: 5px;
 }
 
 .card:nth-of-type(even) {

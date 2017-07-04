@@ -83,12 +83,13 @@ function intoDOM(){
 		console.log(counter)
 		buildCard(people);
 	}
+	selected();
 }
 
 //function that builds cards from the array of objects called People
 function buildCard(person) {
 	output.innerHTML += `<person id="${counter+1}" class="card">
-	<h2>${person[counter].name}</h2>
+	<h2><u>${person[counter].name}</u></h2>
 	<person><h3>${people[counter].bio}</h3><br>
 	<img class="images" src="${people[counter].image}"</article>
 	<footer><b>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</b></footer>
@@ -101,9 +102,10 @@ intoDOM(buildCard,people);
 
 
 function selected() {
-	for (var i = l; i < people.length; i++)
+	for (var i = 0; i < people.length; i++) {
+		console.log("events and stuff")
+	}
 }
-
 
 
 //a keyup function
