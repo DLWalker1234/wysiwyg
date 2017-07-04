@@ -14,15 +14,86 @@
 // When you press the enter/return key when typing in the input field,
 //  then the content of the input field should immediately be blank.
 
-var xmlhttp = new XMLHttpRequest(),
-	json;
+// potentially attempting to use JSON import on the assignment
+// var xmlhttp = new XMLHttpRequest(),
+// 	json;
 
-xmlhttp.onreadystatechange = function() {
-	if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-		json = JSON.parse(xmlhttp.responseText);
-		console.log(json);
+// xmlhttp.onreadystatechange = function() {
+// 	if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+// 		json = JSON.parse(xmlhttp.responseText);
+// 		console.log(json);
+// 	}
+// };
+
+// xmlhttp.open('GET','people.json', true);
+// xmlhttp.send();
+
+console.log("hello");
+
+//A variable that contains an array of objects of the people to be displayed in the DOM
+var people = [
+  	{
+  		title: "France",
+  		name: "Napoleon Bonaparte",
+  		bio: "Emporer of France for a while",
+  		image: "images/napoleon.jpg",
+  		lifespan: {
+    		birth: 1769,
+    		death: 1821
+  		}
+  	},
+	{
+		title: "United States",
+		name: "George Washington",
+		bio: "First President of the United States",
+		image: "images/washington.jpg",
+		lifespan: {
+			birth: 1732,
+			death: 1799
+		}
+	},
+	{ 
+		title: "India",
+		name: "Gandhi",
+		bio: "civil rights activist",
+		image: "images/gandhi.jpg",
+		lifespan: {
+			birth: 1869,
+			death: 1948
+		}
 	}
-};
+];
+console.log(people)
 
-xmlhttp.open('GET','people.json', true);
-xmlhttp.send();
+//Variables to correlate with what is in the DOM
+var input = document.getElementById("input");
+var output = document.getElementById("output");
+var counter = 0;
+
+
+
+
+
+for (;counter < people.length; counter++) {
+	console.log(people[counter].name)
+	buildCard(people);
+}
+
+function buildCard(person) {
+	output.innerHTML += `<person class"card>
+	<h3>${person[counter].name}</h3>
+	<article>${people[counter].bio}<br>
+	<img class="images" src="${people[counter].image}"</article>
+	<footer>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</footer></person>`
+}
+
+
+
+
+//a keyup function
+function enterKey(keypress){
+		if (keypress.which === 13) {
+			input.value = "";
+		}
+	}
+	document.addEventListener("keypress", enterKey);
