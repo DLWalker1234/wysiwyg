@@ -68,25 +68,41 @@ console.log(people)
 //Variables to correlate with what is in the DOM
 var input = document.getElementById("input");
 var output = document.getElementById("output");
+var card = document.getElementsByClassName("card");
+//Counter has to be a global variable(I think) too many functions depend on the count (I think)
 var counter = 0;
 
 
 
 
-
-for (;counter < people.length; counter++) {
-	console.log(people[counter].name)
-	buildCard(people);
+function intoDOM(){
+	//for loop that puts the build cards into the DOM
+	for (;counter < people.length; counter++) {
+		// console.log(people[counter].name)
+		// console.log(people[counter])
+		console.log(counter)
+		buildCard(people);
+	}
 }
 
+//function that builds cards from the array of objects called People
 function buildCard(person) {
-	output.innerHTML += `<person class"card>
-	<h3>${person[counter].name}</h3>
-	<article>${people[counter].bio}<br>
+	output.innerHTML += `<person id="${counter+1}" class="card">
+	<h2>${person[counter].name}</h2>
+	<person><h3>${people[counter].bio}</h3><br>
 	<img class="images" src="${people[counter].image}"</article>
-	<footer>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</footer></person>`
+	<footer><b>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</b></footer>
+	</person>`
 }
 
+//calling the function to put things into the DOM
+intoDOM(buildCard,people); 	
+
+
+
+function selected() {
+	for (var i = l; i < people.length; i++)
+}
 
 
 
