@@ -88,12 +88,12 @@ function intoDOM(){
 
 //function that builds cards from the array of objects called People
 function buildCard(person) {
-	output.innerHTML += `<person id="${counter+1}" class="card">
+	output.innerHTML += `<div id="${counter+1}" class="card">
 	<h2><u>${person[counter].name}</u></h2>
 	<person><h3>${people[counter].bio}</h3><br>
 	<img class="images" src="${people[counter].image}"</article>
 	<footer><b>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</b></footer>
-	</person>`
+	</div>`
 }
 
 //calling the function to put things into the DOM
@@ -103,7 +103,22 @@ intoDOM(buildCard,people);
 
 function selected() {
 	for (var i = 0; i < people.length; i++) {
-		console.log("events and stuff")
+		console.log("events and stuff");
+		var napoleon = document.getElementById("1");
+		var washington = document.getElementById("2");
+		var gandhi = document.getElementById("3");
+		napoleon.addEventListener("click",function() {
+			napoleon.style.border = '5px dotted red';
+			input.focus()
+		})
+		washington.addEventListener("click",function() {
+			washington.style.border = '5px dotted red';
+			input.focus()
+		})
+		gandhi.addEventListener("click",function() {
+			gandhi.style.border = '5px dotted red';
+			input.focus()
+		})
 	}
 }
 

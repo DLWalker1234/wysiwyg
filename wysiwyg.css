@@ -4,14 +4,26 @@ h2, h3, footer {
 	font-family: 'Oswald', sans-serif;
 }
 
+h3 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#input {
+	margin-bottom: 2em;
+	display: center;
+}
+
 .card {
 	border-style: solid;
     border-color: red;
-    border-width: 5px;
+    border-width: 3px;
+    margin-bottom: 20px;
 }
 
 .card:nth-of-type(even) {
 	background-color: yellow;
+	background-size: contain;
 }
 
 .card:nth-of-type(odd) {
@@ -23,6 +35,10 @@ h2, h3, footer {
 .images {
 	margin-left: 2em;
 	width: 500px;
+	border-radius: 10%;
+	border-style: solid;
+	border-color: red;
+	border-width: 3px;
 }
 
 
