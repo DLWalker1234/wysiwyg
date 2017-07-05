@@ -14,6 +14,7 @@
 // When you press the enter/return key when typing in the input field,
 //  then the content of the input field should immediately be blank.
 
+//*********************************//JSON\\**********************************************
 // potentially attempting to use JSON import on the assignment
 // var xmlhttp = new XMLHttpRequest(),
 // 	json;
@@ -27,6 +28,7 @@
 
 // xmlhttp.open('GET','people.json', true);
 // xmlhttp.send();
+// ***********************************************************************************
 
 console.log("hello");
 
@@ -69,6 +71,7 @@ console.log(people)
 var input = document.getElementById("input");
 var output = document.getElementById("output");
 var card = document.getElementsByClassName("card");
+var selectedCard;
 //Counter has to be a global variable(I think) too many functions depend on the count (I think)
 var counter = 0;
 
@@ -100,7 +103,7 @@ function buildCard(person) {
 intoDOM(buildCard,people); 	
 
 
-
+//function that changes the border of the selected div and adds focus to input
 function selected() {
 	for (var i = 0; i < people.length; i++) {
 		console.log("events and stuff");
@@ -110,18 +113,31 @@ function selected() {
 		napoleon.addEventListener("click",function() {
 			napoleon.style.border = '5px dotted red';
 			input.focus()
+			
 		})
 		washington.addEventListener("click",function() {
 			washington.style.border = '5px dotted red';
 			input.focus()
+			
 		})
 		gandhi.addEventListener("click",function() {
 			gandhi.style.border = '5px dotted red';
 			input.focus()
+			
+			
 		})
 	}
 }
 
+//function that will unselect the appropraite div
+function unselected() {
+	for (let i = 0; i < people.length; i++)
+}
+
+function edits(input,card) {
+	var editedBio = 
+	editedBio.innerHTML = input.value;
+}
 
 //a keyup function
 function enterKey(keypress){
