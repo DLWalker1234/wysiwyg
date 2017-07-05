@@ -71,10 +71,9 @@ console.log(people)
 var input = document.getElementById("input");
 var output = document.getElementById("output");
 var card = document.getElementsByClassName("card");
-var selectedCard;
+
 //Counter has to be a global variable(I think) too many functions depend on the count (I think)
 var counter = 0;
-
 
 
 
@@ -85,6 +84,7 @@ function intoDOM(){
 		// console.log(people[counter])
 		console.log(counter)
 		buildCard(people);
+
 	}
 	selected();
 }
@@ -93,7 +93,7 @@ function intoDOM(){
 function buildCard(person) {
 	output.innerHTML += `<div id="${counter+1}" class="card">
 	<h2><u>${person[counter].name}</u></h2>
-	<person><h3>${people[counter].bio}</h3><br>
+	<person><h3 id="bio">${people[counter].bio}</h3><br>
 	<img class="images" src="${people[counter].image}"</article>
 	<footer><b>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</b></footer>
 	</div>`
@@ -110,6 +110,7 @@ function selected() {
 		var napoleon = document.getElementById("1");
 		var washington = document.getElementById("2");
 		var gandhi = document.getElementById("3");
+		var bio = document.getElementById("bio");
 		napoleon.addEventListener("click",function() {
 			napoleon.style.border = '5px dotted red';
 			input.focus()
@@ -130,19 +131,16 @@ function selected() {
 }
 
 //function that will unselect the appropraite div
-function unselected() {
-	for (let i = 0; i < people.length; i++)
-}
+// function unselected() {
+// 	for (let i = 0; i < people.length; i++)
+// }
 
-function edits(input,card) {
-	var editedBio = 
-	editedBio.innerHTML = input.value;
-}
-
-//a keyup function
-function enterKey(keypress){
-		if (keypress.which === 13) {
-			input.value = "";
-		}
+input.addEventListener("keyup",function(e) {
+	if (e.keycode === 13) {
+		console.log("enter")
+		input.value = "";
+	}else{
+		console.log('huh')
+		bio.innerHTML += input.value;
 	}
-	document.addEventListener("keypress", enterKey);
+})
