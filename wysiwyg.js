@@ -65,12 +65,13 @@ var people = [
 		}
 	}
 ];
-console.log(people)
+
 
 //Variables to correlate with what is in the DOM
 var input = document.getElementById("input");
 var output = document.getElementById("output");
 var card = document.getElementsByClassName("card");
+
 
 //Counter has to be a global variable(I think) too many functions depend on the count (I think)
 var counter = 0;
@@ -82,25 +83,31 @@ function intoDOM(){
 	for (;counter < people.length; counter++) {
 		// console.log(people[counter].name)
 		// console.log(people[counter])
-		console.log(counter)
+		// console.log(counter)
 		buildCard(people);
+		var cards = document.getElementsByClassName("card");
+		var bios = document.getElementsByClassName("bio");
+		// console.log(cards)
+		// console.log(bios)
+
 
 	}
-	selected();
+	
 }
 
 //function that builds cards from the array of objects called People
 function buildCard(person) {
 	output.innerHTML += `<div id="${counter+1}" class="card">
 	<h2><u>${person[counter].name}</u></h2>
-	<person><h3 id="bio">${people[counter].bio}</h3><br>
+	<h3 id="bio-${counter}">${people[counter].bio}</h3><br>
 	<img class="images" src="${people[counter].image}"</article>
 	<footer><b>${people[counter].lifespan.birth}-${people[counter].lifespan.death}</b></footer>
 	</div>`
 }
 
 //calling the function to put things into the DOM
-intoDOM(buildCard,people); 	
+intoDOM(buildCard,people);
+selected(); 	
 
 
 //function that changes the border of the selected div and adds focus to input
@@ -110,37 +117,41 @@ function selected() {
 		var napoleon = document.getElementById("1");
 		var washington = document.getElementById("2");
 		var gandhi = document.getElementById("3");
-		var bio = document.getElementById("bio");
+		// var bio = document.getElementById("bio");
 		napoleon.addEventListener("click",function() {
 			napoleon.style.border = '5px dotted red';
 			input.focus()
-			
+			var napoleonBio = document.getElementById("bio-0").value
+			console.log(napoleonBio)
+			// edits(napoleonBio)
 		})
 		washington.addEventListener("click",function() {
 			washington.style.border = '5px dotted red';
 			input.focus()
-			
+			var washingtonBio = document.getElementById("bio-1");
+			console.log(washingtonBio)
+			editts(washingtonBio)
 		})
 		gandhi.addEventListener("click",function() {
 			gandhi.style.border = '5px dotted red';
 			input.focus()
+			var gandhiBio = document.getElementById("bio-2");
+			console.log(gandhiBio)
+			edits(gandhiBio)
 			
 			
 		})
 	}
 }
 
-//function that will unselect the appropraite div
-// function unselected() {
-// 	for (let i = 0; i < people.length; i++)
-// }
-
-input.addEventListener("keyup",function(e) {
-	if (e.keycode === 13) {
-		console.log("enter")
-		input.value = "";
-	}else{
-		console.log('huh')
-		bio.innerHTML += input.value;
-	}
-})
+function edits(targetCard, targetBio) {
+  input.addEventListener("keyup", function(event) {
+		if (currentCard.classList.contains("selectedCard")) {
+      		let newBio = event.currentTarget.value;
+      		currentBio.innerHTML= newBio;
+      	if (event.keyCode === 13) {
+      		currentBio.innerHTML = newBio;
+      		input.value = "";
+      	}
+     }
+})}
